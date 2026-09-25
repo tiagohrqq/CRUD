@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
 
 import br.com.senai.teste.model.Aluno;
 import br.com.senai.teste.service.AlunoService;
@@ -29,7 +30,7 @@ public class AlunoController {
 
     @PostMapping
     public ResponseEntity<Aluno> cadastrar(
-            @RequestBody Aluno aluno) {
+            @Valid @RequestBody Aluno aluno) {
 
         Aluno alunoCadastrado = alunoService.cadastrar(aluno);
 
@@ -61,7 +62,7 @@ public class AlunoController {
 
     @PutMapping ("/{id}")
     public ResponseEntity<Aluno> atualizar(
-        @PathVariable Integer id, @RequestBody Aluno novosDados) {
+        @PathVariable Integer id, @Valid @RequestBody Aluno novosDados) {
 
         Optional<Aluno> alunoAtualizado = alunoService.atualizar(id, novosDados);
         
