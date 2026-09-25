@@ -1,0 +1,14 @@
+$kind: http-request
+name: /alunos
+url: http://localhost:8080/alunos
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"nome\": \"Tiago\",\r
+
+    \    \"email\": \"tiago.hrs-2005@hotmail.com\"\r
+
+    }"
+order: 2000
