@@ -1,14 +1,8 @@
 $kind: http-request
 name: /livros
-url: http://localhost:8080/alunos
-method: POST
+url: http://localhost:8080/emprestimo
+method: DELETE
 body:
   type: json
-  content: "{\r
-
-    \    \"nome\": \"Tiago\",\r
-
-    \    \"email\": \"tiago.hrs-2005@hotmail.com\"\r
-
-    }"
-order: 1162985061982677
+  content: ""
+order: 2000

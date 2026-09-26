@@ -1,14 +1,8 @@
 $kind: http-request
 name: /alunos
-url: http://localhost:8080/alunos
-method: POST
+url: http://localhost:8080/alunos/1
+method: GET
 body:
   type: json
-  content: "{\r
-
-    \    \"nome\": \"Tiago\",\r
-
-    \    \"email\": \"tiago.hrs-2005@hotmail.com\"\r
-
-    }"
+  content: ""
 order: 2000
