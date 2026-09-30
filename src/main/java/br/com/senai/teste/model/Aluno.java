@@ -11,7 +11,7 @@ import jakarta.validation.constraints.NotBlank;
 @Entity
 @Table(name = "aluno")
 public class Aluno {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -22,7 +22,6 @@ public class Aluno {
     @NotBlank(message = "O email não pode ser vazio")
     @Email(message = "O email deve ser válido")
     private String email;
-    
 
     public Aluno() {
     }
@@ -51,5 +50,5 @@ public class Aluno {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
 }

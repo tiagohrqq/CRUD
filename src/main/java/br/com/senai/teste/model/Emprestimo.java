@@ -13,11 +13,11 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "emprestimo")
 public class Emprestimo {
-    
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    private LocalDate dataDevolucao;
     private LocalDate dataEmprestimo;
 
     @ManyToOne
@@ -57,6 +57,14 @@ public class Emprestimo {
 
     public void setLivro(Livro livro) {
         this.livro = livro;
+    }
+
+    public LocalDate getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public void setDataDevolucao(LocalDate dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
     }
 
 }

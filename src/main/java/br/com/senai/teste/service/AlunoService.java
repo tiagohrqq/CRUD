@@ -29,10 +29,10 @@ public class AlunoService {
     }
 
     public Optional<Aluno> atualizar(
-        Integer id, Aluno novosDados) {
+            Integer id, Aluno novosDados) {
         Optional<Aluno> alunoEncontrado = alunoRepository.findById(id);
 
-        if (alunoEncontrado.isEmpty()){
+        if (alunoEncontrado.isEmpty()) {
             return Optional.empty();
         }
 
@@ -42,11 +42,11 @@ public class AlunoService {
         aluno.setEmail(novosDados.getEmail());
 
         return Optional.of(alunoRepository.save(aluno));
-        }
+    }
 
     public boolean excluir(Integer id) {
 
-        if(alunoRepository.existsById(id)){
+        if (alunoRepository.existsById(id)) {
             return false;
         }
 

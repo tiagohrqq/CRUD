@@ -1,9 +1,9 @@
 package br.com.senai.teste.dto;
 
-import br.com.senai.teste.model.emprestimo;
+import br.com.senai.teste.model.Emprestimo;
 
 public class EmprestimoRequest {
-    
+
     private Integer alunoId;
     private Integer livroId;
 

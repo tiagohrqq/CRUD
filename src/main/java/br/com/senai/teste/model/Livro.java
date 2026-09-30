@@ -11,7 +11,7 @@ import jakarta.validation.constraints.NotBlank;
 @Entity
 @Table(name = "Livro")
 public class Livro {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,7 +24,6 @@ public class Livro {
 
     @Min(value = 1, message = "O ano deve ser maior que zero")
     private int anoPublicacao;
-    
 
     public Livro() {
     }
@@ -62,5 +61,5 @@ public class Livro {
     public void setAnoPublicacao(int anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
-    
+
 }

@@ -34,7 +34,7 @@ public class LivroController {
         return ResponseEntity.status(HttpStatus.CREATED).body(livroCadastrado);
     }
 
-    @GetMapping 
+    @GetMapping
     public ResponseEntity<List<Livro>> listar() {
         List<Livro> livros = livroService.listar();
         return ResponseEntity.ok(livros);
@@ -44,30 +44,30 @@ public class LivroController {
     public ResponseEntity<Livro> buscarPorId(@PathVariable Integer id) {
         Optional<Livro> livro = livroService.buscarPorId(id);
 
-        if(livro.isPresent()) {
+        if (livro.isPresent()) {
             return ResponseEntity.ok(livro.get());
         } else {
             return ResponseEntity.notFound().build();
         }
-        
+
     }
 
-    @PutMapping ("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Livro> atualizar(@Valid @PathVariable Integer id, @RequestBody Livro novosDados) {
         Optional<Livro> livroAtualizado = livroService.atualizar(id, novosDados);
 
-        if(livroAtualizado.isPresent()) {
+        if (livroAtualizado.isPresent()) {
             return ResponseEntity.ok(livroAtualizado.get());
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
-    @DeleteMapping ("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable Integer id) {
         boolean excluido = livroService.excluir(id);
 
-        if(excluido) {
+        if (excluido) {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();

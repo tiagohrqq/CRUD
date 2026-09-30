@@ -60,12 +60,11 @@ public class AlunoController {
 
     }
 
-    @PutMapping ("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Aluno> atualizar(
-        @PathVariable Integer id, @Valid @RequestBody Aluno novosDados) {
+            @PathVariable Integer id, @Valid @RequestBody Aluno novosDados) {
 
         Optional<Aluno> alunoAtualizado = alunoService.atualizar(id, novosDados);
-        
 
         if (alunoAtualizado.isPresent()) {
             return ResponseEntity.ok(alunoAtualizado.get());
@@ -74,7 +73,7 @@ public class AlunoController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping ("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable Integer id) {
         boolean excluido = alunoService.excluir(id);
 
