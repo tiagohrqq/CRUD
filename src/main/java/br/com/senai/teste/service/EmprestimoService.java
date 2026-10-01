@@ -77,4 +77,13 @@ public class EmprestimoService {
         return Optional.of(emprestimo);
     }
 
+    public List<Emprestimo> listarAtivos() {
+        return emprestimoRepository
+                .findByDataDevolucaoIsNull();
+    }
+
+    public List<Emprestimo> listarPorAluno(Integer alunoId) {
+        return emprestimoRepository.findByAlunoId(alunoId);
+    }
+
 }
