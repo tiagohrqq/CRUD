@@ -1,0 +1,5 @@
+$kind: http-request
+name: /livro
+url: "{{base_url}}/livros"
+method: GET
+order: 2000

@@ -1,0 +1,5 @@
+$kind: http-request
+name: /emprestimo/id
+url: "{{base_url}}/emprestimos/3"
+method: DELETE
+order: 1875

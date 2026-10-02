@@ -1,0 +1,14 @@
+$kind: http-request
+name: /emprestimo
+url: "{{base_url}}/emrpestimo"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"nome\": \"Bruno\",\r
+
+    \    \"email\": \"bruno@hotmail.com\"\r
+
+    }"
+order: 3000

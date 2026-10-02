@@ -1,6 +1,7 @@
 package br.com.senai.teste.controller;
 
 import java.util.Optional;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import br.com.senai.teste.dto.EmprestimoRequest;
 import br.com.senai.teste.model.Emprestimo;
 import br.com.senai.teste.service.EmprestimoService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/emprestimos")
@@ -29,18 +31,16 @@ public class EmprestimoController {
 
     @PostMapping
     public ResponseEntity<Emprestimo> cadastrar(
-            @RequestBody EmprestimoRequest dados) {
+            @Valid @RequestBody EmprestimoRequest dados) {
 
         Integer alunoId = dados.getAlunoId();
         Integer livroId = dados.getLivroId();
-
-        if (alunoId == null || livroId == null) {
-            return ResponseEntity.badRequest().build();
-        }
+        LocalDate dataPrevistaDevolucao = dados.getDataPrevistaDevolucao();
 
         Optional<Emprestimo> emprestimo = emprestimoService.cadastrar(
                 alunoId,
-                livroId);
+                livroId,
+                dataPrevistaDevolucao);
 
         if (emprestimo.isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -89,5 +89,23 @@ public class EmprestimoController {
         List<Emprestimo> emprestimos = emprestimoService.listarPorAluno(alunoId);
         return ResponseEntity.ok(emprestimos);
     }
+
+    @GetMapping("/livro/{livroId}")
+    public ResponseEntity<List<Emprestimo>> listarPorLivro(@PathVariable Integer livroId) {
+        List<Emprestimo> emprestimos = emprestimoService.listarPorLivro(livroId);
+        return ResponseEntity.ok(emprestimos);
+    }
+
+    @GetMapping("/atrasados")
+    public ResponseEntity<List<Emprestimo>> listarAtrasados() {
+        List<Emprestimo> emprestimos = emprestimoService.listarAtrasados();
+        return ResponseEntity.ok(emprestimos);
+    }
+
+    @GetMapping("/aluno/{alunoId}/atrasados")
+    public ResponseEntity<List<Emprestimo>> listarAtrasadosPorAluno(@PathVariable Integer alunoId) {
+        List<Emprestimo> emprestimos = emprestimoService.listarAtrasadosPorAluno(alunoId);
+        return ResponseEntity.ok(emprestimos);
+    }   
 
 }

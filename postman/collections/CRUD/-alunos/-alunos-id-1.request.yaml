@@ -1,0 +1,5 @@
+$kind: http-request
+name: /alunos/id
+url: "{{base_url}}/alunos/3"
+method: DELETE
+order: 1875

@@ -46,7 +46,7 @@ public class AlunoService {
 
     public boolean excluir(Integer id) {
 
-        if (alunoRepository.existsById(id)) {
+        if (!alunoRepository.existsById(id)) {
             return false;
         }
 

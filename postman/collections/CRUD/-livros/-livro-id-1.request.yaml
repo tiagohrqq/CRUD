@@ -1,0 +1,14 @@
+$kind: http-request
+name: /livro/id
+url: "{{base_url}}/livro/3"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"nome\": \"Bruno cabral\",\r
+
+    \    \"email\": \"bruno@hotmail.com\"\r
+
+    }"
+order: 4000

@@ -75,6 +75,8 @@ public class AlunoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable Integer id) {
+
+        System.out.println(id);
         boolean excluido = alunoService.excluir(id);
 
         if (excluido) {

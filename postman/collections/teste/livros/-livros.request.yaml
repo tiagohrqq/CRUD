@@ -1,8 +1,0 @@
-$kind: http-request
-name: /livros
-url: http://localhost:8080/emprestimo
-method: DELETE
-body:
-  type: json
-  content: ""
-order: 2000
